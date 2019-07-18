@@ -7,13 +7,14 @@ class TestReverseMethod(unittest.TestCase):
         x = [1, 2, 3]
         result = reverse.Solution().reverse(x)
         expected_result = [3, 2, 1]
-        self.assertEqual([3, 2, 1], expected_result)
+        self.assertEqual(result, expected_result)
 
+    def test_not_thirty_two_bit(self):
+        x = [2**32, 2, 3]
+        result = reverse.Solution().reverse(x)
+        expected_result = 0
+        self.assertEqual(result, expected_result)
 """
-    def test_isupper(self):
-        self.assertTrue('FOO'.isupper())
-        self.assertFalse('Foo'.isupper())
-
     def test_split(self):
         s = 'hello world'
         self.assertEqual(s.split(), ['hello', 'world'])
