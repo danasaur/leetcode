@@ -14,6 +14,12 @@ class TestReverseMethod(unittest.TestCase):
         result = reverse.Solution().reverse(x)
         expected_result = 0
         self.assertEqual(result, expected_result)
+
+    def test_negative_not_thirty_two_bit(self):
+        x = [-2**32, 2, 3]
+        result = reverse.Solution().reverse(x)
+        expected_result = 0
+        self.assertEqual(result, expected_result)
 """
     def test_split(self):
         s = 'hello world'
