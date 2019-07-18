@@ -33,5 +33,19 @@ class TestReverseMethod(unittest.TestCase):
         expected_result = -21
         self.assertEqual(result, expected_result)
 
+    def test_result_not_thirty_two_bit(self):
+        x = 1534236469
+        result = reverse.Solution().reverse(x)
+        expected_result = 0
+        self.assertEqual(result, expected_result)
+
+    def test_result_not_thirty_two_bit_v2(self):
+        x = 1563847412
+        result = reverse.Solution().reverse(x)
+        expected_result = 0
+        self.assertEqual(result, expected_result)
+
+
+
 if __name__ == '__main__':
     unittest.main()

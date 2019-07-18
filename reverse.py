@@ -21,10 +21,13 @@ class Solution:
             if Negative:
                 reversed_x = reversed_x*(-1)
 
+            if self.is_thirty_two_bit(reversed_x) == False:
+                return 0
+
             return reversed_x
 
     def is_thirty_two_bit(self, x: int):
-        if abs(x) <= 0xffffffff:
+        if abs(x) <= 2**31:
             return True
         else:
             return False
