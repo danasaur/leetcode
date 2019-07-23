@@ -11,38 +11,16 @@ class Solution:
             "M": 1000
         }
 
-        romans = list(x)
+        numbers = [roman_dict[roman] for roman in x]
 
-        total = 0
+        total = numbers[0]
 
-        possible_negatives = {'I', 'X', 'C'}
-
-        for position, element in enumerate(romans):
-
-            if element in possible_negatives and position < len(romans) - 1:
+        for i in range(1, len(numbers)):
                 
-                next_roman = romans[position+1]
-
-                if element == "I":
-                    if next_roman == 'V' or next_roman == 'X':
-                        total += -1
-                    else: 
-                        total += 1
-
-                if element == "X":
-                    if next_roman == 'L' or next_roman == 'C':
-                        total += -10
-                    else: 
-                        total += 10
-
-                if element == "C":
-                    if next_roman == 'D' or next_roman == 'M':
-                        total += -100
-                    else: 
-                        total += 100
-
+            if numbers[i-1] < numbers[i]:
+                total += numbers[i] - numbers[i-1]*2
             else:
-                total += roman_dict[element]
+                total += numbers[i]
 
         return total
 
@@ -50,4 +28,7 @@ class Solution:
 if __name__ == '__main__':
     s = Solution()
     x = "MCMXCIV"
+    print(s.roman_to_int(x))
+
+    x = 'IX'
     print(s.roman_to_int(x))
